@@ -1,0 +1,8 @@
+Host *
+    IdentityFile ~/Dropbox/vault/jzbruno
+    PasswordAuthentication no
+    ConnectTimeout 5
+    ServerAliveInterval 5
+    ServerAliveCountMax 3
+    Compression yes
+    PermitLocalCommand yes

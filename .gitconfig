@@ -1,0 +1,33 @@
+[alias]
+	co = checkout
+	copr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
+	ci = commit -m
+	st = status
+	ustage = reset HEAD --
+	nuke = reset --hard
+
+[user]
+	name = Jack Bruno
+	email = jzbruno@gmail.com
+
+[core]
+	excludesfile = /Users/p2723614/.gitignore
+	editor = code --wait
+
+[push]
+	default = matching
+
+[diff]
+    tool = vscode
+
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+
+[merge]
+    tool = vscode
+
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
