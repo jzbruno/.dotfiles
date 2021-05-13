@@ -1,6 +1,6 @@
 # Prompt
 
-if [[ -z "$PS1" ]]; then
+if [[ -z "${PS1}" ]]; then
 	return
 fi
 
@@ -20,28 +20,30 @@ export CLICOLOR=1
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # History
 
 export HISTCONTROL=ignoreboth
+shopt -s histappend
 
 # Aliases
 
-alias ls="ls -lhF"
+alias ls="ls -AohvF --color"
 alias grep="grep --color=auto"
 
 # Completion
 
 if [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]]; then
-    . "/usr/local/etc/profile.d/bash_completion.sh"
+    source "/usr/local/etc/profile.d/bash_completion.sh"
 fi
 
-# Homebrew
+# Homebrew / Bin
 
 if which brew &>/dev/null; then
     export PATH="${PATH}:/usr/local/bin"
 fi
+
+export PATH+"${PATH}:${HOME}/.local/bin:${HOME}/bin"
 
 # Pyenv
 
@@ -52,7 +54,13 @@ fi
 # Kubernetes
 
 if which krew &>/dev/null; then
-    export PATH="${PATH}:${HOME}/.krew/bin"
+    export PATH="${PATH}:${KREW_ROOT:-${HOME}/.krew}/bin"
 fi
 
 export KUBE_EDITOR='code -n --wait'
+
+# Work
+
+if [[ -r "${HOME}/.bashrc_work" ]]; then
+    source "${HOME}/.bashrc_work"
+fi
