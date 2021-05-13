@@ -1,5 +1,8 @@
+Host github.com
+    IdentityFile ~/.ssh/jzbruno.pem
+
 Host *
-    IdentityFile ~/Dropbox/vault/jzbruno
+    IdentityFile ~/.ssh/jzbruno.pem
     PasswordAuthentication no
     ConnectTimeout 5
     ServerAliveInterval 5

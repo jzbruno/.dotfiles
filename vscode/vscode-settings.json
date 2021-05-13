@@ -1,16 +1,16 @@
 {
     "window.zoomLevel": 1,
-    "workbench.colorTheme": "One Dark Bimbo",
     "editor.fontSize": 14,
     "editor.wordWrap": "on",
     "editor.copyWithSyntaxHighlighting": false,
     "editor.rulers": [
         80,
-        100
+        100,
+        120
     ],
     "editor.find.autoFindInSelection": true,
     "editor.fontLigatures": true,
-    "editor.formatOnPaste": true,
+    "editor.formatOnPaste": false,
     "editor.minimap.enabled": false,
     "editor.acceptSuggestionOnEnter": "off",
     "workbench.enableExperiments": false,

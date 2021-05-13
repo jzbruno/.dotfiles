@@ -2,5 +2,6 @@ set completion-ignore-case On
 
 # option+left arrow skip backward
 "\e\e[D": backward-word
+
 # option+right arrow to skip forward
 "\e\e[C": forward-word
