@@ -43,7 +43,7 @@ if which brew &>/dev/null; then
     export PATH="${PATH}:/usr/local/bin"
 fi
 
-export PATH+"${PATH}:${HOME}/.local/bin:${HOME}/bin"
+export PATH="${PATH}:${HOME}/.local/bin:${HOME}/bin"
 
 # Pyenv
 
