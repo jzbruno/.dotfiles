@@ -31,33 +31,43 @@ shopt -s histappend
 alias ls="ls -AohvF --color"
 alias grep="grep --color=auto"
 
-# Completion
+# Homebrew
 
-if [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]]; then
-    source "/usr/local/etc/profile.d/bash_completion.sh"
+if type brew &>/dev/null; then
+    eval $(brew shellenv)
+    
+    if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+        source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+    else
+        for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+            [[ -r "$COMPLETION" ]] && source "$COMPLETION"
+        done
+    fi
 fi
 
-# Homebrew / Bin
+# Linux Bash Completion
 
-if which brew &>/dev/null; then
-    export PATH="${PATH}:/usr/local/bin"
-fi
-
-export PATH="${PATH}:${HOME}/.local/bin:${HOME}/bin"
+if [[ -r "/etc/bash_completion" ]]; then
+    source "/etc/bash_completion"
+fi 
 
 # Pyenv
 
-if which pyenv &>/dev/null; then
+if type pyenv &>/dev/null; then
     export PATH="${PATH}:$(pyenv root)/shims"
 fi
 
 # Kubernetes
 
-if which krew &>/dev/null; then
+if type krew &>/dev/null; then
     export PATH="${PATH}:${KREW_ROOT:-${HOME}/.krew}/bin"
 fi
 
 export KUBE_EDITOR='code -n --wait'
+
+# Bin
+
+export PATH="${PATH}:${HOME}/.local/bin:${HOME}/bin"
 
 # Work
 
