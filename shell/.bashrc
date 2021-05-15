@@ -31,6 +31,12 @@ shopt -s histappend
 alias ls="ls -AohvF --color"
 alias grep="grep --color=auto"
 
+# Linux Bash Completion
+
+if [[ -r "/etc/bash_completion" ]]; then
+    source "/etc/bash_completion"
+fi 
+
 # Homebrew
 
 if type brew &>/dev/null; then
@@ -45,12 +51,6 @@ if type brew &>/dev/null; then
     fi
 fi
 
-# Linux Bash Completion
-
-if [[ -r "/etc/bash_completion" ]]; then
-    source "/etc/bash_completion"
-fi 
-
 # Pyenv
 
 if type pyenv &>/dev/null; then
@@ -59,10 +59,9 @@ fi
 
 # Kubernetes
 
-if type krew &>/dev/null; then
+if type kubectl-krew &>/dev/null; then
     export PATH="${PATH}:${KREW_ROOT:-${HOME}/.krew}/bin"
 fi
-
 export KUBE_EDITOR='code -n --wait'
 
 # Bin

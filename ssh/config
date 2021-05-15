@@ -6,6 +6,9 @@ Host *
     PasswordAuthentication no
     ConnectTimeout 5
     ServerAliveInterval 5
-    ServerAliveCountMax 3
+    ServerAliveCountMax 2
     Compression yes
     PermitLocalCommand yes
+    ForwardAgent yes
+    AddKeysToAgent yes
+    TCPKeepAlive yes
