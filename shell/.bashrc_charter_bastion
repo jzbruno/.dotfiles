@@ -1,0 +1,54 @@
+# Prompt
+
+if [[ -z "${PS1}" ]]; then
+	return
+fi
+
+function _prompt() {
+    PS1="\u@bastion-se:\w \$ "
+}
+
+export PROMPT_COMMAND=_prompt
+
+# Colors
+
+export CLICOLOR=1
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# History
+
+export HISTCONTROL=ignoreboth
+shopt -s histappend
+
+# Aliases
+
+alias ls="ls -AohvF --color"
+alias grep="grep --color=auto"
+
+# Linux Bash Completion
+
+if [[ -r "/etc/bash_completion" ]]; then
+    source "/etc/bash_completion"
+fi 
+
+# AWS
+
+export AWS_PROFILE=charterdev
+export AWS_REGION=us-west-2
+
+# Kops
+
+export KOPS_STATE_STORE=s3://state.kubernetes.dev-charter.net
+export KOPS_RUN_OBSOLETE_VERSION="true"
+
+# Kubernetes
+
+if type kubectl-krew &>/dev/null; then
+    export PATH="${PATH}:${KREW_ROOT:-${HOME}/.krew}/bin"
+fi
+
+# Bin
+
+export PATH="${PATH}:${HOME}/.local/bin:${HOME}/bin"

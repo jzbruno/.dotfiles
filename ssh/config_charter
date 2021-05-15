@@ -1,0 +1,23 @@
+Host bastion-se
+    User p2723614
+    HostName bastion.se-charter.net
+
+Host bastion-css
+    User P2723614
+    HostName bastion.shared.dev-spectrum.net
+
+Host github.com
+    IdentityFile ~/.ssh/jzbruno.pem
+
+Host *
+    User p2723614
+    IdentityFile ~/.ssh/p2723614.pem
+    PasswordAuthentication no
+    ConnectTimeout 5
+    ServerAliveInterval 5
+    ServerAliveCountMax 2
+    Compression yes
+    PermitLocalCommand yes
+    ForwardAgent yes
+    AddKeysToAgent yes
+    TCPKeepAlive yes
