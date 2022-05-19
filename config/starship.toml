@@ -1,0 +1,89 @@
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$vlang\
+$python\
+$golang\
+$terraform\
+$helm\
+$package\
+$kubernetes\
+$aws\
+$memory_usage\
+$env_var\
+$custom\
+$cmd_duration\
+$line_break\
+$jobs\
+$character"""
+
+add_newline = false
+
+[directory]
+truncation_length = 3
+truncation_symbol = ".../"
+
+[git_branch]
+symbol = ''
+
+[git_commit]
+tag_symbol = " tag "
+only_detached = true
+
+[git_status]
+ahead = ">"
+behind = "<"
+diverged = "<>"
+renamed = "r"
+deleted = "x"
+
+[kubernetes]
+#format = 'ctx [$symbol$context ]($style)ns [$namespace ]($style)'
+format = 'using [$symbol$context(/$namespace) ]($style)'
+symbol = 'k8s '
+style = '#326de6 bold'
+disabled = false
+
+[kubernetes.context_aliases]
+"docker-desktop" = "docker"
+#".*.shared.(?P<cluster>.*)-spectrum.net" = "$cluster"
+
+[aws]
+format = 'in [($symbol$profile/$region )(expires $duration )]($style)'
+symbol = ''
+style = "bold #ec6a0e"
+
+[aws.region_aliases]
+us-west-2 = "usw2"
+us-east-1 = "use1"
+
+[python]
+pyenv_version_name = true
+symbol = ''
+style = '#ffdd56'
+
+[vlang]
+symbol = 'V '
+style = '#4b6c88'
+
+[golang]
+symbol = 'go '
+style = '#79d4fd'
+
+[terraform]
+disabled = true
+
+[helm]
+symbol = 'helm '
+style = '#5e86d4 bold'
+
+[package]
+format = "is [$symbol$version ]($style)"
+symbol = 'pkg '
+style = 'green bold'
