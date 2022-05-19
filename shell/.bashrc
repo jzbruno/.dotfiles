@@ -28,7 +28,11 @@ shopt -s histappend
 
 # Aliases
 
-alias ls="ls -AohvF --color"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	alias ls="ls -AohvF"
+else
+	alias ls="ls -AohvF --color"
+fi
 alias grep="grep --color=auto"
 
 # Linux Bash Completion
@@ -53,20 +57,22 @@ fi
 
 # Pyenv
 
-if type pyenv &>/dev/null; then
-    export PATH="${PATH}:$(pyenv root)/shims"
-fi
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 # Kubernetes
 
-if type kubectl-krew &>/dev/null; then
-    export PATH="${PATH}:${KREW_ROOT:-${HOME}/.krew}/bin"
-fi
 export KUBE_EDITOR='code -n --wait'
 
 # Bin
 
-export PATH="${PATH}:${HOME}/.local/bin:${HOME}/bin"
+export HOMEBREW_PREFIX="/usr/local";
+export HOMEBREW_CELLAR="/usr/local/Cellar";
+export HOMEBREW_REPOSITORY="/usr/local/Homebrew";
+export PATH="/usr/local/bin:/usr/local/sbin${PATH+:$PATH}";
+export MANPATH="/usr/local/share/man${MANPATH+:$MANPATH}:";
+export INFOPATH="/usr/local/share/info:${INFOPATH:-}";
 
 # Work
 

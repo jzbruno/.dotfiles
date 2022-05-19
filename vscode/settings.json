@@ -1,0 +1,56 @@
+{
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.copyWithSyntaxHighlighting": false,
+    "editor.fontSize": 16,
+    "editor.formatOnPaste": false,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.rulers": [
+        80,
+        100,
+        120
+    ],
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 100,
+    "explorer.sortOrderLexicographicOptions": "lower",
+    "files.associations": {
+        "helmfile.yaml": "helm",
+        "*.yaml.gotmpl": "helm",
+        "_*.tpl": "helm"
+    },
+    "redhat.telemetry.enabled": false,
+    "search.exclude": {
+        "**/vendor": true
+    },
+    "terminal.external.osxExec": "iTerm.app",
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.startupEditor": "none",
+    "cSpell.userWords": [
+        "dotenv",
+        "engprod",
+        "gotmpl",
+        "HELMFILE",
+        "helmignore",
+        "httpbin",
+        "Istio",
+        "istioctl",
+        "istiod",
+        "kubeconfig",
+        "kubectl",
+        "Kubernetes",
+        "microservices",
+        "pinxt",
+        "Veracode"
+    ],
+    "markdownlint.config": {
+        "MD005": true,
+        "MD007": true,
+        "MD013": false,
+        "MD024": false,
+        "MD029": false,
+        "MD033": false,
+        "MD036": true
+    }
+}
