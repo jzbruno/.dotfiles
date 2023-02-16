@@ -29,7 +29,7 @@ HYPHEN_INSENSITIVE="true"
 zstyle ':omz:update' mode auto      # update automatically without asking
 
 # Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+zstyle ':omz:update' frequency 14
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -73,42 +73,32 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # plugins=(git kubectl kube-ps1 kubectx vscode)
 plugins=()
 
-
 # User configuration
 
 source $ZSH/oh-my-zsh.sh
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='code'
-fi
-
-export HOMEBREW_PREFIX="/usr/local";
-export HOMEBREW_CELLAR="/usr/local/Cellar";
-export HOMEBREW_REPOSITORY="/usr/local/Homebrew";
-export PATH="/usr/local/bin:/usr/local/sbin${PATH+:$PATH}";
-export MANPATH="/usr/local/share/man${MANPATH+:$MANPATH}:";
-export INFOPATH="/usr/local/share/info:${INFOPATH:-}";
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
-export LESS="-RFX"
-export KUBE_EDITOR='code -n --wait'
-
 eval "$(starship init zsh)"
 
-alias zshconfig="code ~/.zshrc"
-alias sshconfig="code ~/.ssh/config"
+export LESS="-RFX"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="${PATH}:${PYENV_ROOT}/bin/"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
+export KUBE_EDITOR='code -n --wait'
+export HELM_DIFF_THREE_WAY_MERGE=true
+
 alias k="kubectl"
 alias cx="kubectl-ctx"
 alias ns="kubectl-ns"
 
-for config in ${HOME}/kubeconfigs/*; do
-  name=$(basename ${config})
-  kubeconfig="$(realpath ${config})"
-  alias "${name}=export KUBECONFIG=${kubeconfig}"
-done
+alias pksctx="python3 ${HOME}/.kube/pks/pks_ctx.py; source ${HOME}/.kube/pks/envs/current_env"
+alias pkscmd="${HOME}/.kube/pks/pks_cmd.sh"
+alias pkslogin="python3 ${HOME}/.kube/pks/pks_login.py"
+
+export PATH="${PATH}:${HOME}/go/bin"
+export PATH="${PATH}:${HOME}/.krew/bin/"
+
+if [[ -f "${HOME}/.zshrc_work" ]]; then
+  source "${HOME}/.zshrc_work"
+fi

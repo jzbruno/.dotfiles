@@ -1,0 +1,7 @@
+export PKS_USERNAME=svc-pinxt-git@corp.chartercom.com
+export PKS_PASSWORD=
+
+export VAULT_ADDR=https://public-vault-prod.meta.spectrum.net
+export VAULT_NAMESPACE=pinxt/dev
+
+export TF_HTTP_PASSWORD=

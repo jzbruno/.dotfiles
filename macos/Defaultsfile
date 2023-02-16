@@ -1,10 +1,12 @@
+#!/usr/bin/env sh
+
 # Autohide the dock
 defaults write com.apple.dock autohide -bool true
 
 # Orient the dock to the right
 defaults write com.apple.dock orientation right
 
-# Clear dock of persisten apps
+# Clear dock of persistent apps
 defaults write com.apple.dock persistent-apps '()'
 defaults write com.apple.dock persistent-others '()'
 
@@ -59,17 +61,6 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 # Default view to list in finder
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
-# Show battery as percent
-defaults write com.apple.menuextra.battery ShowPercent YES
-
-# Menubar items
-defaults write com.apple.systemuiserver menuExtras '()'
-defaults write com.apple.systemuiserver menuExtras -array-add '/System/Library/CoreServices/Menu Extras/AirPort.menu'
-defaults write com.apple.systemuiserver menuExtras -array-add '/System/Library/CoreServices/Menu Extras/Battery.menu'
-defaults write com.apple.systemuiserver menuExtras -array-add '/System/Library/CoreServices/Menu Extras/Clock.menu'
-defaults write com.apple.systemuiserver menuExtras -array-add '/System/Library/CoreServices/Menu Extras/User.menu'
-defaults write com.apple.systemuiserver menuExtras -array-add '/System/Library/CoreServices/Menu Extras/Volume.menu'
-
 # Enable option+scroll to zoom screen
 defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
 defaults write com.apple.universalaccess closeViewScrollWheelModifiersInt -int 524288
@@ -77,12 +68,17 @@ defaults write com.apple.universalaccess closeViewScrollWheelModifiersInt -int 5
 # Double click to maximize
 defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Maximize"
 
-# Hot Corners: top right = mission control, bottom right = display sleep
+# Hot Corners:
+#  2  = mission control
+#  3  = application windows
+#  4  = desktop
+#  10 = sleep
 defaults write com.apple.dock wvous-tr-corner -int 2
-defaults write com.apple.dock wvous-br-corner -int 10
+defaults write com.apple.dock wvous-bl-corner -int 4
+defaults write com.apple.dock wvous-br-corner -int 3
 
 # Disable boot chime
-sudo nvram SystemAudioVolume=" "
+sudo nvram StartupMute=%01
 
 # Restart
 killall Dock

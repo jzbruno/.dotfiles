@@ -11,7 +11,7 @@
         100,
         120
     ],
-    "editor.wordWrap": "bounded",
+    "editor.wordWrap": "on",
     "editor.wordWrapColumn": 100,
     "explorer.sortOrderLexicographicOptions": "lower",
     "files.associations": {
@@ -21,7 +21,8 @@
     },
     "redhat.telemetry.enabled": false,
     "search.exclude": {
-        "**/vendor": true
+        "**/vendor": true,
+        "**/.terraform": true
     },
     "terminal.external.osxExec": "iTerm.app",
     "window.zoomLevel": 1,

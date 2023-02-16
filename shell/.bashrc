@@ -65,17 +65,10 @@ eval "$(pyenv init --path)"
 
 export KUBE_EDITOR='code -n --wait'
 
-# Bin
+alias k="kubectl"
+alias cx="kubectl-ctx"
+alias ns="kubectl-ns"
 
-export HOMEBREW_PREFIX="/usr/local";
-export HOMEBREW_CELLAR="/usr/local/Cellar";
-export HOMEBREW_REPOSITORY="/usr/local/Homebrew";
-export PATH="/usr/local/bin:/usr/local/sbin${PATH+:$PATH}";
-export MANPATH="/usr/local/share/man${MANPATH+:$MANPATH}:";
-export INFOPATH="/usr/local/share/info:${INFOPATH:-}";
-
-# Work
-
-if [[ -r "${HOME}/.bashrc_work" ]]; then
-    source "${HOME}/.bashrc_work"
+if [[ -f "${HOME}/.bashrc_work"]]; then
+  source "${HOME}/.bashrc_work"
 fi

@@ -18,16 +18,16 @@
 	default = matching
 
 [diff]
-    tool = vscode
+	tool = vscode
 
 [difftool "vscode"]
-    cmd = code --wait --diff $LOCAL $REMOTE
+	cmd = code --wait --diff $LOCAL $REMOTE
 
 [merge]
-    tool = vscode
+	tool = vscode
 
 [mergetool "vscode"]
-    cmd = code --wait $MERGED
+	cmd = code --wait $MERGED
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/

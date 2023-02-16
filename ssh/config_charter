@@ -13,11 +13,11 @@ Host *
     User p2723614
     IdentityFile ~/.ssh/p2723614.pem
     PasswordAuthentication no
-    ConnectTimeout 5
+    ConnectTimeout 15
     ServerAliveInterval 5
-    ServerAliveCountMax 2
+    ServerAliveCountMax 10
     Compression yes
     PermitLocalCommand yes
-    ForwardAgent yes
-    AddKeysToAgent yes
+    ForwardAgent no
+    AddKeysToAgent no
     TCPKeepAlive yes

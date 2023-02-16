@@ -1,0 +1,13 @@
+# cluster_alias|pks_cluster_name|pks_server|namespaces
+ndc_nce_dev|nce-nonprod-pinxt-pers-dev|nceu-pks-01.corp.chartercom.com|pinxt,pinxt-dev2,pinxt-eng1,pinxt-eng2,pinxt-eng3,pinxt-eng4,pinxt-eng5
+ndc_nce_perf1|nce-nonprod-pinxt-pers2p-uat|nceu-pks-01.corp.chartercom.com|pinxt
+ndc_nce_preprod|nce-prod-pinxt-persp2-prod|ncep-pks-01.corp.chartercom.com|pinxt
+ndc_nce_prod|nce-prod-pinxt-pers-prod|ncep-pks-01.corp.chartercom.com|pinxt
+ndc_nce_qa|nce-nonprod-pinxt-pers-qa|nceu-pks-01.corp.chartercom.com|pinxt-qa1
+ndc_nce_uat1|nce-nonprod-pinxt-pers1-uat|nceu-pks-01.corp.chartercom.com|pinxt
+ndc_ncw_dev|ncw-nonprod-pinxt-pers-dev|ncwu-pks-01.corp.chartercom.com|pinxt,pinxt-dev2,pinxt-eng1,pinxt-eng2,pinxt-eng3,pinxt-eng4,pinxt-eng5
+ndc_ncw_perf2|ncw-nonprod-pinxt-persp2-uat|ncwu-pks-01.corp.chartercom.com|pinxt
+ndc_ncw_prod|ncw-prod-pinxt-pers-prod|ncwp-pks-01.corp.chartercom.com|pinxt
+ndc_ncw_qa|ncw-nonprod-pinxt-pers-qa|ncwu-pks-01.corp.chartercom.com|pinxt-hf,pinxt-qa2
+ndc_ncw_sit|ncw-nonprod-pinxt-pers-sit|ncwu-pks-01.corp.chartercom.com|pinxt-int1,pinxt-int2,pinxt-sit
+ndc_ncw_uat2|ncw-nonprod-pinxt-pers1-uat|ncwu-pks-01.corp.chartercom.com|pinxt

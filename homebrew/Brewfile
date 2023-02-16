@@ -1,4 +1,21 @@
-tap "homebrew/cask"
+# taps
+
+tap "hashicorp/tap"
+tap "helmwave/tap"
+
+# scm
+
+brew "git"
+# brew "jfrog-cli"
+cask "sourcetree"
+
+# shell
+
+# brew "bash"
+# brew "bash-completion"
+brew "starship"
+brew "zsh"
+cask "iterm2"
 
 # core
 
@@ -9,20 +26,12 @@ brew "dua-cli"
 brew "findutils", args: ["with-default-names"]
 brew "fzf"
 brew "gawk", args: ["with-default-names"]
-brew "git"
 brew "gnu-sed", args: ["with-default-names"]
 brew "gnu-tar", args: ["with-default-names"]
 brew "grep", args: ["with-default-names"]
-brew "tree"
+brew "jq"
 brew "watch"
-
-# shell
-
-brew "bash-completion"
-brew "bash"
-brew "shellcheck"
-brew "starship"
-brew "zsh"
+brew "yq"
 
 # network
 
@@ -32,55 +41,62 @@ brew "nmap"
 brew "telnet"
 brew "wget"
 
-# containers / kubernetes
+# hashicorp utils
 
-# brew "argocd"
-# brew "crane"
-brew "docker-completion"
-# brew "faas-cli"
-brew "helm"
-brew "helmfile"
-# brew "istioctl"
-brew "k9s"
-brew "kind"
-# brew "kops"
-brew "krew"
-brew "kubernetes-cli"
-brew "stern"
-brew "vcluster"
-cask "docker"
+brew "hashicorp/tap/terraform-ls"
+brew "hashicorp/tap/terraform"
+brew "hashicorp/tap/vault"
 
 # cloud
 
-# brew "aws-iam-authenticator"
 brew "awscli"
-# brew "azure-cli"
 
-# programming
+# containers and kubernetes
 
-brew "go"
-# brew "maven"
-# brew "node"
-brew "pyenv-virtualenv"
+# brew "argocd"
+# brew "crane"
+cask "docker"
+brew "docker-completion"
+brew "helm"
+brew "helmfile"
+brew "helmwave"
+# brew "istioctl"
+brew "k9s"
+# brew "kind"
+brew "krew"
+brew "kubectx"
+brew "kubernetes-cli"
+# brew "vcluster"
+
+# languages
+
+# brew "go"
+# brew "gomplate"
+# brew "openjdk@17", link: true
 brew "pyenv"
 brew "python"
-# brew "ruby"
-brew "vim"
-# cask "java"
 
-# infra
+# vms
 
-brew "terraform"
-# brew "vagrant-completion"
+# brew "hashicorp/tap/hashicorp-vagrant"
 # cask "multipass"
-# cask "vagrant"
+# cask "virtualbox"
 
-# other
+# db
 
-cask "dropbox"
+# cask "tableplus"
+
+# browsers
+
 cask "firefox"
-cask "iterm2"
-cask "keepassxc"
-cask "sourcetree"
-cask "tableplus"
+# cask "google-chrome"
+
+# editors
+
+# brew "vim"
 cask "visual-studio-code"
+
+# chat
+
+# cask "webex-teams"
+# cask "zoomus"

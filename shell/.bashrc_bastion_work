@@ -5,7 +5,7 @@ if [[ -z "${PS1}" ]]; then
 fi
 
 function _prompt() {
-    PS1="\u@bastion-se:\w \$ "
+    PS1="\u@bastion:\w \$ "
 }
 
 export PROMPT_COMMAND=_prompt
@@ -33,22 +33,18 @@ if [[ -r "/etc/bash_completion" ]]; then
     source "/etc/bash_completion"
 fi 
 
-# AWS
-
-export AWS_PROFILE=charterdev
-export AWS_REGION=us-west-2
-
-# Kops
-
-export KOPS_STATE_STORE=s3://state.kubernetes.dev-charter.net
-export KOPS_RUN_OBSOLETE_VERSION="true"
+export PATH="${PATH}:${HOME}/.local/bin:${HOME}/bin"
 
 # Kubernetes
 
-if type kubectl-krew &>/dev/null; then
-    export PATH="${PATH}:${KREW_ROOT:-${HOME}/.krew}/bin"
-fi
+export PATH="${PATH}:${KREW_ROOT:-${HOME}/.krew}/bin"
 
-# Bin
+alias k="kubectl"
+alias cx="kubectl-ctx"
+alias ns="kubectl-ns"
 
-export PATH="${PATH}:${HOME}/.local/bin:${HOME}/bin"
+for config in ./kubeconfigs/*; do
+  name="$(basename ${config})"
+  path="$(realpath ${HOME}/${config})"
+  alias "${name}=export KUBECONFIG=${path}"
+done

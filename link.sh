@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 ln -s $HOME/.dotfiles/aws/config $HOME/.aws/config
 ln -s $HOME/.dotfiles/config/starship.toml $HOME/.config/starship.toml
